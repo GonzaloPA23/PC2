@@ -1,0 +1,40 @@
+<div class="contenedor">
+    <form [formGroup]="form" (submit)="guardar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>idMascota</mat-label>
+        <input matInput hidden placeholder="Id" formControlName="idMascota">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>direccion</mat-label>
+        <input matInput required placeholder="direccion" formControlName="direccion">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>tamano</mat-label>
+        <input matInput required placeholder="tamano" formControlName="tamano">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>fechaNacimiento</mat-label>
+        <input matInput required [matDatepicker]="picker" formControlName="fechaNacimiento"
+        max="maxFecha">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>status</mat-label>
+        <mat-select formControlName="status" required>
+          <mat-option *ngFor="let option of statusOptions" [value]="option.value">
+            {{ option.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary">Aceptar</button>
+      <button mat-raised-button color="warn" routerLink="/authors">Cancelar</button>
+      <p>{{mensaje}}</p>
+  
+    </form>
+  </div>

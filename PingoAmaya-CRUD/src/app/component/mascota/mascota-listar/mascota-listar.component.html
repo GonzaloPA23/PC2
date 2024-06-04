@@ -1,0 +1,70 @@
+<div class="container">
+    <h1 style="text-align: center;">Listado de Mascotas</h1>
+  <mat-grid-list cols="1" rowHeight="4em">
+    <mat-grid-tile>
+      <input matInput placeholder="Buscar">
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="idMascota">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.idMascota}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="direccion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> direccion </th>
+          <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="tamano">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> tamaño en cm</th>
+          <td mat-cell *matCellDef="let element"> {{element.tamano}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="fechaNacimiento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> fechaNacimiento </th>
+          <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
+        </ng-container>
+
+         <!-- Weight Column -->
+         <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> status </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+          </ng-container>
+  
+        <ng-container matColumnDef="accion1">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+           <td mat-cell *matCellDef="let element">
+             <button mat-raised-button color="primary"
+           [routerLink]="['/mascotas/editar',element.idMascota]">
+                        <span class="material-icons">update</span>
+                      </button>
+           </td>
+        </ng-container>
+  
+         <ng-container matColumnDef="accion2">
+          <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+          <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn">
+              <span class="material-icons">delete_sweep</span></button>
+          </td>
+        </ng-container> 
+          
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[4, 8, 12]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+  </div> 
+  

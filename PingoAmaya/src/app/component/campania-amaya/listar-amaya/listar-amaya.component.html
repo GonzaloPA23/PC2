@@ -1,0 +1,37 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="fechaInicio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Inicio </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechaInicio}} </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="presupuesto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Presupuesto </th>
+        <td mat-cell *matCellDef="let element"> {{element.presupuesto}} </td>
+      </ng-container>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="medioComunicacion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Medio de Comunicación </th>
+        <td mat-cell *matCellDef="let element"> {{element.medioComunicacion}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[4, 7, 10]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+ 

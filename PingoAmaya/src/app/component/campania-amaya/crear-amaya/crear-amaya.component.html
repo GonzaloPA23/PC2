@@ -1,0 +1,54 @@
+<div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre de la campaña</mat-label>
+        <input matInput required placeholder="Nombre" formControlName="nombre">
+      </mat-form-field>
+      <br>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Objetivo de la campaña</mat-label>
+        <input matInput required placeholder="Objetivo" formControlName="objetivo">
+      </mat-form-field>
+      <br>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Inicio</mat-label>
+        <input matInput [matDatepicker]="inicioPicker" formControlName="fechaInicio" required>
+        <mat-datepicker-toggle matIconSuffix [for]="inicioPicker"></mat-datepicker-toggle>
+        <mat-datepicker #inicioPicker></mat-datepicker>
+      </mat-form-field>
+      <br>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Fin</mat-label>
+        <input matInput [matDatepicker]="finPicker" formControlName="fechaFin" required>
+        <mat-datepicker-toggle matIconSuffix [for]="finPicker"></mat-datepicker-toggle>
+        <mat-datepicker #finPicker></mat-datepicker>
+      </mat-form-field>
+      <br>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Presupuesto (min 500 max 7 500)</mat-label>
+        <input matInput type="number" required placeholder="Presupuesto" formControlName="presupuesto">
+      </mat-form-field>
+      <br>
+  
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Medio de Comunicación</mat-label>
+        <mat-select formControlName="medioComunicacion" required>
+          <mat-option value="email">Email</mat-option>
+          <mat-option value="redes sociales">Redes Sociales</mat-option>
+          <mat-option value="pagina web">Página Web</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+  
+      <div class="button-container">
+        <button mat-raised-button type="submit" color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/authors">Cancelar</button>
+      </div>
+      <p>{{mensaje}}</p>
+    </form>
+  </div>
+  
